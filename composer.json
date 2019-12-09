@@ -1,0 +1,21 @@
+{
+    "name": "vianafgluiz/recognition-pkg",
+    "description": "Ivare Artificial Intelligence API",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Luiz Viana",
+            "email": "luiz@ivare.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">= 7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "vianafgluiz\\Recognition\\": "src/"
+        }
+    }
+}
