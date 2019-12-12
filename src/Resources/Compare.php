@@ -22,6 +22,12 @@ class Compare
         $this->token = $token;
     }
 
+    /**
+     * @define: Retornar a comparação baseada no token enviado. Somente retorna se o
+     *          usuario que possui o token enviado for o dono da Comparação
+     * @return JSON
+     * @author: luiz@ivare.com.br
+     */
     public function compareByID(int $id) {
         /* Datas */
         $headers = array(
@@ -52,7 +58,7 @@ class Compare
 
     /**
      * @define: Retornar todas as comparações baseada no usuario que possui o token enviado
-     * @return
+     * @return JSON
      * @author: luiz@ivare.com.br
      */
     public function allComparisions() {
@@ -83,7 +89,12 @@ class Compare
         return $statusCode;
     }
 
-    public function compareImages($sourceImage, $targetImage, $confidence = 0.6) {
+    /**
+     * @define: Retornar o resultado de uma comparação entre duas imagens
+     * @return JSON
+     * @author: luiz@ivare.com.br
+     */
+    public function compareImages($sourceImage, $targetImage, $confidence = 60) {
         $headers = array(
             "Content-type: application/x-www-form-urlencoded",
             "Authorization: Token " . $this->token
@@ -99,7 +110,7 @@ class Compare
         $ch = curl_init();
 
         /* Seto a URL, o header, a quantidade e quais estou enviado */
-        curl_setopt($ch, CURLOPT_URL, Url::IMAGES);
+        curl_setopt($ch, CURLOPT_URL, Url::COMPARE);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER , true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch,CURLOPT_POST, count($datas));
@@ -118,4 +129,7 @@ class Compare
         return $statusCode;
     }
 
+    public function compareWithCollection($collectionID, $image64) {
+
+    }
 }

@@ -24,7 +24,7 @@ class Collection
 
     /**
      * @define: Criador de uma Collection
-     * @return Collection criada
+     * @return  Collection criada
      * @author: luiz@ivare.com.br
      */
     public function create(string $collectionId) {
@@ -61,6 +61,12 @@ class Collection
         return $statusCode;
     }
 
+    /**
+     * @define: Retornar a collection baseada no id enviado. Somente retorna se o
+     *          usuario que possui o token enviado for o dono da COLLECTION
+     * @return JSON
+     * @author: luiz@ivare.com.br
+     */
     public function collectionByID(int $id) {
         /* Datas */
         $headers = array(

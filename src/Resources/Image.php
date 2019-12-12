@@ -23,6 +23,12 @@ class Image
         $this->token = $token;
     }
 
+    /**
+     * @define: Retornar a imagem baseada no id enviado. Somente retorna se o
+     *          usuario que possui o token enviado for o dono da IMAGEM
+     * @return JSON
+     * @author: luiz@ivare.com.br
+     */
     public function imageByID(int $id) {
         /* Datas */
         $headers = array(
@@ -49,6 +55,15 @@ class Image
             return $response;
 
         return $statusCode;
+    }
+
+    /**
+     * @define: Retornar todas as images baseada no collection que o Usuario que possui o token enviado
+     * @return Image
+     * @author: luiz@ivare.com.br
+     */
+    public function imagesByCollection(int $collection) {
+
     }
 
     /**
